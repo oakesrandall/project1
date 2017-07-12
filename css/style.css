@@ -31,7 +31,7 @@
   float: right;
 }
 
-#blockOne {
+#block1 {
   display: inline-block;
   width: 200px;
   height: 200px;
@@ -41,7 +41,7 @@
 
 }
 
-#blockTwo {
+#block2 {
   display: inline-block;
   width: 200px;
   height: 200px;
@@ -50,7 +50,15 @@
 
 }
 
-#blockThree {
+#block3 {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  border-bottom-left-radius: 100%;
+}
+
+#block4 {
   display: inline-block;
   width: 200px;
   height: 200px;
@@ -58,13 +66,7 @@
   border-bottom-right-radius: 100%;
 }
 
-#blockFour {
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-  background-color: yellow;
-  border-bottom-left-radius: 100%;
-}
+
 
 
 .gameInfoButtons {

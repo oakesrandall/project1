@@ -5,10 +5,11 @@ $(function() {
 
 //uses 3rd party jQuery library to apply style to the inside of my
 //colored blocks resulting in the empty circle in the middle
-$("#blockOne").corner("bite, br 60px");
-$("#blockTwo").corner("bite, bl 60px");
-$("#blockThree").corner("bite, tl 60px");
-$("#blockFour").corner("bite, tr 60px");
+$("#block1").corner("bite, br 60px");
+$("#block2").corner("bite, bl 60px");
+$("#block3").corner("bite, tr 60px");
+$("#block4").corner("bite, tl 60px");
+
 
 //creates a computer variable to track the computer's sequence
 var computer = {
@@ -26,4 +27,9 @@ var player = {
 //generates a random number between 1 and 4
 function generateRandomNumber() {
   return Math.floor(Math.random() * 4 + 1);
+}
+
+//makes a colored box flash according to the number passed into the function
+function flashColor(boxNumber) {
+  $("#block1").fadeOut(100).fadeIn(100);
 }
