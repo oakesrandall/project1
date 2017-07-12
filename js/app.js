@@ -62,8 +62,15 @@ function createComputerSequence() {
   while (computer.sequence.length < counter && counter < 21) {
     computer.sequence.push(generateRandomNumber());
   }
+//needed to clear the counter in order for my flashTimer function
+//to operate
+  countTimer = 0;
 }
 
+
+//Takes the computer's randomly generated sequence and outputs a number used
+//to make a specific section flash.  This function has a time delay built in so
+//the blocks don't flash too quickly
 var countTimer = 0;
 function flashTimer(array) {
   setTimeout(function() {
@@ -73,14 +80,6 @@ function flashTimer(array) {
       flashTimer(array);
     }
   }, 500);
+//resets the computer's array after the function is run
+  computer.sequence = [];
 }
-
-
-// function displayComputerSequence(array) {
-//   for (let i = 0; i < array.length; i++) {
-//     flashColor(array[i].toString());
-//       setTimeout(function() {
-//         console.log("waiting on timeout");
-//       }, 5000);
-//   }
-// }
