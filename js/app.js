@@ -24,12 +24,35 @@ var player = {
   response: [],
 };
 
+
 //generates a random number between 1 and 4
 function generateRandomNumber() {
   return Math.floor(Math.random() * 4 + 1);
 }
 
+// function doesMatch(){
+//   if
+// }
+
 //makes a colored box flash according to the number passed into the function
 function flashColor(boxNumber) {
   $("#block" + boxNumber).fadeOut(100).fadeIn(100);
+}
+
+function resetPlayerStats() {
+  player.streak = 0;
+  player.attempts = 0;
+}
+
+function resetComputerSequence() {
+  computer.sequence = [];
+}
+
+function resetPlayerResponse() {
+  player.response = [];
+}
+
+function createComputerSequence() {
+  computer.sequence.push(generateRandomNumber());
+  player.attempts++
 }
