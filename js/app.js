@@ -3,7 +3,7 @@ $(function() {
 });
 
 var player = {
-  streak = 0;
-  attempts = 0;
-  response = [];
+  streak: 0,
+  attempts: 0,
+  response: [],
 };

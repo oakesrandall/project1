@@ -6,3 +6,36 @@
 .gameTitle h1 {
   font-family: "simon-font", sans-serif;
 }
+
+.gameBoard {
+  width: 420px;
+  height: 420px;
+}
+
+#blockOne {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-color: green;
+}
+
+#blockTwo {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-color: red;
+}
+
+#blockThree {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+}
+
+#blockFour {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+}
