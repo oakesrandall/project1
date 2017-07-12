@@ -31,5 +31,5 @@ function generateRandomNumber() {
 
 //makes a colored box flash according to the number passed into the function
 function flashColor(boxNumber) {
-  $("#block1").fadeOut(100).fadeIn(100);
+  $("#block" + boxNumber).fadeOut(100).fadeIn(100);
 }
