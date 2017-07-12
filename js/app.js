@@ -30,9 +30,16 @@ function generateRandomNumber() {
   return Math.floor(Math.random() * 4 + 1);
 }
 
-// function doesMatch(){
-//   if
-// }
+//allows the board to be clicked and gives me the number of the
+//block that was clicked
+function getUserClick() {
+  $(".clickMe").on("click", function() {
+    console.log("clicked!");
+    var tempVar = $(this).attr("id");
+    console.log(tempVar);
+    player.response = parseInt(tempVar[5]);
+  });
+}
 
 //makes a colored box flash according to the number passed into the function
 function flashColor(boxNumber) {
