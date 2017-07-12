@@ -21,7 +21,7 @@ var computer = {
 var player = {
   streak: 0,
   attempts: 0,
-  response: [],
+  response: 0,
 };
 
 
@@ -59,7 +59,28 @@ function resetPlayerResponse() {
 //the number of times the player has successfully matched the computer
 function createComputerSequence() {
   var counter = player.attempts + 1
-  while (computer.sequence.length < counter && counter < 20) {
+  while (computer.sequence.length < counter && counter < 21) {
     computer.sequence.push(generateRandomNumber());
   }
 }
+
+var countTimer = 0;
+function flashTimer(array) {
+  setTimeout(function() {
+    flashColor(array[countTimer].toString());
+    countTimer ++;
+    if (countTimer < array.length) {
+      flashTimer(array);
+    }
+  }, 500);
+}
+
+
+// function displayComputerSequence(array) {
+//   for (let i = 0; i < array.length; i++) {
+//     flashColor(array[i].toString());
+//       setTimeout(function() {
+//         console.log("waiting on timeout");
+//       }, 5000);
+//   }
+// }
