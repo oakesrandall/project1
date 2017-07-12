@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "simon-font";
+  src: url("../fonts/pricedown-bl.ttf");
+}
+
+.gameTitle h1 {
+  font-family: "simon-font", sans-serif;
+}
