@@ -39,20 +39,27 @@ function flashColor(boxNumber) {
   $("#block" + boxNumber).fadeOut(100).fadeIn(100);
 }
 
+//resets all player stats
 function resetPlayerStats() {
   player.streak = 0;
   player.attempts = 0;
 }
 
+//resets computer sequence array
 function resetComputerSequence() {
   computer.sequence = [];
 }
 
+//resets player response array
 function resetPlayerResponse() {
   player.response = [];
 }
 
+//creates an array of randomly generated numbers that is one element longer than
+//the number of times the player has successfully matched the computer
 function createComputerSequence() {
-  computer.sequence.push(generateRandomNumber());
-  player.attempts++
+  var counter = player.attempts + 1
+  while (computer.sequence.length < counter && counter < 20) {
+    computer.sequence.push(generateRandomNumber());
+  }
 }
