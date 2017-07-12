@@ -3,13 +3,32 @@
   src: url("../fonts/pricedown-bl.ttf");
 }
 
+* {
+  text-align: center;
+}
+
 .gameTitle h1 {
   font-family: "simon-font", sans-serif;
+  font-size: 8em;
+  margin: 0.25em auto;
+}
+.gamePageContent {
+  width: 900px;
+  height:
 }
 
 .gameBoard {
   width: 420px;
   height: 420px;
+  display: inline-block;
+  float: left;
+}
+
+.rightColumn {
+  width: 420px;
+  height: 420px;
+  display: inine-block;
+  float: right;
 }
 
 #blockOne {
@@ -17,6 +36,8 @@
   width: 200px;
   height: 200px;
   background-color: green;
+  border-top-left-radius: 100%;
+
 }
 
 #blockTwo {
@@ -24,18 +45,44 @@
   width: 200px;
   height: 200px;
   background-color: red;
+  border-top-right-radius: 100%;
+  /*border-bottom-right-radius: 50%; */
 }
 
 #blockThree {
   display: inline-block;
   width: 200px;
   height: 200px;
-  background-color: blue;
+  background-color: yellow;
+  border-bottom-left-radius: 100%;
 }
 
 #blockFour {
   display: inline-block;
   width: 200px;
   height: 200px;
-  background-color: yellow;
+  background-color: blue;
+  border-bottom-right-radius: 100%;
+}
+
+.gameInfoButtons {
+
+}
+
+#aboutButton {
+  display: inline-block;
+}
+
+#rulesButton {
+  display: inline-block;
+}
+
+.startButton {
+  display: block;
+  clear: left;
+}
+
+.footerText {
+  display: block;
+  clear: left;
 }
