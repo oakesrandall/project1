@@ -37,6 +37,7 @@
   height: 200px;
   background-color: green;
   border-top-left-radius: 100%;
+  border-bottom-right-radius: -15px;
 
 }
 
@@ -46,10 +47,18 @@
   height: 200px;
   background-color: red;
   border-top-right-radius: 100%;
-  /*border-bottom-right-radius: 50%; */
+
 }
 
 #blockThree {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+  border-bottom-right-radius: 100%;
+}
+
+#blockFour {
   display: inline-block;
   width: 200px;
   height: 200px;
@@ -57,13 +66,6 @@
   border-bottom-left-radius: 100%;
 }
 
-#blockFour {
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-  background-color: blue;
-  border-bottom-right-radius: 100%;
-}
 
 .gameInfoButtons {
 
