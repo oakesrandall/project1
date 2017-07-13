@@ -10,10 +10,25 @@ $("#block2").corner("bite, bl 60px");
 $("#block3").corner("bite, tr 60px");
 $("#block4").corner("bite, tl 60px");
 
+function playGame() {
+   resetComputerSequence();
+   resetPlayerResponse();
+   createComputerSequence();
+   flashTimer(computer.sequence);
+   getUserClick()
+   setTimeout(function() {
+     if (player.response === computer.sequence[player.numberOfClicks -1]) {
+       console.log("winning");
+     } else {
+       alert("you suck")
+     }
+ }, (500));
+}
 
 //creates a computer variable to track the computer's sequence
 var computer = {
   sequence: [],
+  currentElement: 0,
 };
 
 //creates a player variable to track their stats, as well as
@@ -22,6 +37,7 @@ var player = {
   streak: 0,
   attempts: 0,
   response: 0,
+  numberOfClicks: 0,
 };
 
 
@@ -32,12 +48,12 @@ function generateRandomNumber() {
 
 //allows the board to be clicked and gives me the number of the
 //block that was clicked
-function getUserClick() {
+function userClick() {
   $(".clickMe").on("click", function() {
     console.log("clicked!");
     var tempVar = $(this).attr("id");
-    console.log(tempVar);
     player.response = parseInt(tempVar[5]);
+    player.numberOfClicks ++;
   });
 }
 
@@ -57,23 +73,23 @@ function resetComputerSequence() {
   computer.sequence = [];
 }
 
-//resets player response array
+//resets player response variable
 function resetPlayerResponse() {
-  player.response = [];
+  player.response = 0;
 }
 
 //creates an array of randomly generated numbers that is one element longer than
 //the number of times the player has successfully matched the computer
 function createComputerSequence() {
-  var counter = player.attempts + 1
-  while (computer.sequence.length < counter && counter < 21) {
     computer.sequence.push(generateRandomNumber());
   }
-//needed to clear the counter in order for my flashTimer function
-//to operate
-  countTimer = 0;
 }
 
+function doesMatch() {
+  computer.currentElement = computer.sequence.shift();
+  console.log("running doesMatch, comparing player.response - " + player.response + " to computer.currentElement - " + computer.currentElement);
+  return (player.response === computer.currentElement);
+}
 
 //Takes the computer's randomly generated sequence and outputs a number used
 //to make a specific section flash.  This function has a time delay built in so
@@ -87,6 +103,4 @@ function flashTimer(array) {
       flashTimer(array);
     }
   }, 500);
-//resets the computer's array after the function is run
-  computer.sequence = [];
 }
