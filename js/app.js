@@ -9,6 +9,7 @@ $(function() {
 //creates a computer variable to track the computer's sequence
 var computer = {
   sequence: [],
+  flashed: [],
   currentElement: 0,
 };
 
@@ -90,6 +91,18 @@ function resetPlayerResponse() {
 function createComputerSequence() {
   computer.sequence.push(generateRandomNumber());
   console.log("Pushed random number into computer.sequence");
+}
+
+var countSequences = 0;
+function createMultipleSequences() {
+  console.log("Ran createMultipleSequences")
+  createComputerSequence();
+  if (countSequences < player.streak) {
+    console.log("Compared countSequences " + countSequences + " to player.streak " + player.streak);
+    countSequences ++;
+    console.log("Increased countSequences by 1, it is now " + countSequences);
+    window.setTimeout(createMultipleSequences(), 100);
+  }
 }
 
 //sets the first element in the results array as a variable and removes it from the original array
