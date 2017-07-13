@@ -9,36 +9,32 @@ $(function() {
 //creates a computer variable to track the computer's sequence
 var computer = {
   sequence: [],
-  flashed: [],
   currentElement: 0,
 };
 
 //creates a player variable to track their stats, as well as
 //the sequence they respond with
 var player = {
+  level: 0,
   streak: 0,
   attempts: 0,
   response: 0,
-  numberOfClicks: 0,
 };
 
 function playGame() {
-   resetComputerSequence();
-   console.log("Ran resetComputerSequence");
-   resetPlayerResponse();
-   console.log("Ran resetPlayerResponse");
-   createComputerSequence();
-   console.log("Ran createComputerSequence");
+   countTimer = 0;
+  //  console.log("Reset countTimer");
+   console.log("STARTED NEW GAME");
+  //  resetComputerSequence();
+  //  console.log("Ran resetComputerSequence");
+  //  resetPlayerResponse();
+  //  console.log("Ran resetPlayerResponse");
+   createMultipleSequences();
+   console.log("Ran createMultipleSequences");
    flashTimer(computer.sequence);
    console.log("Ran flashTimer on computer.sequence " + computer.sequence);
-//    setTimeout(function() {
-//      if (player.response === computer.sequence[player.numberOfClicks -1]) {
-//        console.log("winning");
-//      } else {
-//        alert("you suck")
-//      }
-//  }, (500));
-// }
+   userClick();
+
 }
 //generates a random number between 1 and 4
 function generateRandomNumber() {
@@ -49,16 +45,32 @@ function generateRandomNumber() {
 //allows the board to be clicked and gives me the number of the
 //block that was clicked
 function userClick() {
-  console.log("Ran userClick. Waiting for clicks");
+  console.log("Ran userClick. Waiting for click");
   $(".clickMe").on("click", function() {
     $(this).animate({opacity: .1}, 200).animate({opacity: 1}, 100);
     console.log("Click registered");
     var tempVar = $(this).attr("id");
-    player.response = parseInt(tempVar[5]);
-    console.log("Player.response is now " + player.response);
-    player.numberOfClicks ++;
-    console.log("player.numberOfClicks is now " + player.numberOfClicks);
+    player.response = (tempVar[5]);
   });
+}
+
+
+function noClick() {
+  $(".clickMe").off("click");
+  console.log("Ran noClick");
+}
+
+function youWin(){
+  alert("Wow! You made it through 20 levels!");
+}
+
+function youLose() {
+  alert("Sorry, you lose");
+}
+
+function levelUp() {
+  player.level ++;
+  console.log("Went up a level. Now at level " + player.level);
 }
 
 //makes a colored box flash according to the number passed into the function
@@ -76,6 +88,8 @@ function resetPlayerStats() {
 
 //resets computer sequence array
 function resetComputerSequence() {
+  countTimer = 0;
+  countSequences = 0;
   computer.sequence = [];
   console.log("Reset computer.sequence. It is now " + computer.sequence);
 }
@@ -97,20 +111,25 @@ var countSequences = 0;
 function createMultipleSequences() {
   console.log("Ran createMultipleSequences")
   createComputerSequence();
-  if (countSequences < player.streak) {
-    console.log("Compared countSequences " + countSequences + " to player.streak " + player.streak);
+  if (countSequences <= player.level -1) {
+    console.log("Compared countSequences " + countSequences + " to player.level " + player.level);
     countSequences ++;
     console.log("Increased countSequences by 1, it is now " + countSequences);
-    window.setTimeout(createMultipleSequences(), 100);
+    createMultipleSequences()
   }
+  console.log("Computer.sequence is now " + computer.sequence);
 }
 
 //sets the first element in the results array as a variable and removes it from the original array
 //then checks it against the player's button press
 function doesMatch() {
-  computer.currentElement = computer.sequence.shift();
+  computer.currentElement = computer.sequence[0];
   console.log("Ran doesMatch, compared player.response - " + player.response + " to computer.currentElement - " + computer.currentElement);
-  return (player.response === computer.currentElement);
+  if (player.response == computer.currentElement); {
+    computer.sequence.shift();
+    return true;
+  }
+  return false;
 }
 
 //Takes the computer's randomly generated sequence and outputs a number used
@@ -119,14 +138,13 @@ function doesMatch() {
 var countTimer = 0;
 function flashTimer(array) {
   setTimeout(function() {
-    flashColor(array[countTimer].toString());
+    flashColor(array[countTimer]);
     countTimer ++;
     if (countTimer < array.length) {
       flashTimer(array);
     } else {
-      userClick();
     }
-  }, 500);
+  }, 1000);
 }
 
 //uses 3rd party jQuery library to apply style to the inside of my
