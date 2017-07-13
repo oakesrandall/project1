@@ -3,11 +3,14 @@ $(function() {
   console.log("Page is ready");
 });
 
+
+
 //creates a computer variable to track the computer's sequence
 var computer = {
   sequence: [],
   flashedItems: [],
   currentElement: 0,
+  arrayLength: 0,
 };
 
 //creates a player variable to track their stats, as well as
@@ -27,11 +30,7 @@ function playGame() {
    console.log("Ran resetPlayerResponse");
    createMultipleSequences();
    console.log("Ran createMultipleSequences");
-   flashArray(computer.sequence);
-   console.log("Ran flashTimer on computer.sequence " + computer.sequence);
-   userClick();
-   winningCondition();
-   console.log("Ran winningCondition");
+   flashArray();
 
 }
 
@@ -72,12 +71,14 @@ function userClick() {
          levelUp();
          noClick();
          countSequences = 0;
+         counter = 0;
+         player.streak = player.level;
          resetComputerSequence();
          createMultipleSequences();
-         setTimeout(flashArray, 1000);
+         setTimeout(flashArray, 600);
       }
     } else {
-    //gameover man
+    youLose();
   }
 
   });
@@ -96,6 +97,7 @@ function youWin(){
 
 function youLose() {
   console.log("game over")
+  noClick();
 }
 
 function levelUp() {
@@ -105,9 +107,9 @@ function levelUp() {
 
 //makes a colored box flash according to the number passed into the function
 function flashColor() {
-  currentElement = computer.sequence.shift();
-  $("#block" + currentElement).animate({opacity: .1}, 200).animate({opacity: 1}, 100);
-  computer.flashedItems.push(currentElement);
+  computer.currentElement = computer.sequence.shift();
+  $("#block" + computer.currentElement).animate({opacity: .1}, 200).animate({opacity: 1}, 100);
+  computer.flashedItems.push(computer.currentElement);
   if (computer.sequence.length === 0) {
     console.log("computer.sequence array is empty")
     userClick();
@@ -152,28 +154,21 @@ function createMultipleSequences() {
     console.log("Increased countSequences by 1, it is now " + countSequences);
   }
   console.log("Computer.sequence is now " + computer.sequence);
+  computer.arrayLength = computer.sequence.length;
 }
 
-//sets the first element in the results array as a variable and removes it from the original array
-//then checks it against the player's button press
-// function doesMatch() {
-//   computer.currentElement = computer.sequence[0];
-//   console.log("Ran doesMatch, compared player.response - " + player.response + " to computer.currentElement - " + computer.currentElement);
-//   if (player.response == computer.currentElement); {
-//     computer.sequence.shift();
-//     return true;
-//   }
-//   return false;
-// }
 
 //Takes the computer's randomly generated sequence and outputs a number used
 //to make a specific section flash.  This function has a time delay built in so
 //the blocks don't flash too quickly
 
+var counter = 0;
 function flashArray(){
-  for (var i = 0; i < computer.sequence.length; i++) {
-    setTimeout(flashColor, 1000);
-  }
+    flashColor();
+    if (counter < computer.arrayLength -1) {
+      counter++
+      setTimeout(flashArray, 600);
+    }
 }
 
 //uses 3rd party jQuery library to apply style to the inside of my
@@ -182,3 +177,7 @@ $("#block1").corner("bite, br 60px");
 $("#block2").corner("bite, bl 60px");
 $("#block3").corner("bite, tr 60px");
 $("#block4").corner("bite, tl 60px");
+
+$("button#startButton").click(function() {
+  setTimeout(playGame, 600);
+});
