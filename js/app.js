@@ -36,7 +36,7 @@ function playGame() {
 
 //generates a random number between 1 and 4
 function generateRandomNumber() {
-  console.log("ran generateRandomNumer")
+  console.log("ran generateRandomNumer");
   return Math.floor(Math.random() * 4 + 1);
 }
 
@@ -46,7 +46,7 @@ function userClick() {
   console.log("Ran userClick. Waiting for click");
   $(".clickMe").on("click", function() {
     computer.testElement = computer.flashedItems.shift();
-    $(this).animate({opacity: .1}, 300).animate({opacity: 1}, 200);
+    $(this).animate({opacity: 0.1}, 300).animate({opacity: 1}, 200);
     console.log("Click registered");
     var tempVar = $(this).attr("id");
     player.response = (tempVar[5]);
@@ -115,19 +115,19 @@ function resetBoard() {
 //resets player response variable
 function resetPlayerResponse() {
   player.response = 0;
-  console.log("Reset player.response.  It is now " + player.response)
+  console.log("Reset player.response.  It is now " + player.response);
 }
 
 //creates an array of randomly generated numbers that is one element longer than
 //the number of times the player has successfully matched the computer
 function createComputerSequence() {
-  console.log("ran createComputerSequence")
+  console.log("ran createComputerSequence");
   computer.sequence.push(generateRandomNumber());
   console.log("Pushed random number into computer.sequence " + computer.sequence[computer.sequence.length -1]);
 }
 
 function createMultipleSequences() {
-  console.log("Ran createMultipleSequences")
+  console.log("Ran createMultipleSequences");
   if (countSequences < player.level) {
     createComputerSequence();
     countSequences ++;
@@ -145,7 +145,7 @@ var counter = 0;
 function flashArray(){
     flashColor();
     if (counter < computer.arrayLength -1) {
-      counter++
+      counter++;
       setTimeout(flashArray, 600);
     }
 }
@@ -154,10 +154,10 @@ function flashArray(){
 function flashColor() {
   computer.currentElement = computer.sequence.shift();
   $("#" + "audio" + computer.currentElement)[0].play();
-  $("#block" + computer.currentElement).animate({opacity: .1}, 300).animate({opacity: 1}, 200);
+  $("#block" + computer.currentElement).animate({opacity: 0.1}, 300).animate({opacity: 1}, 200);
   computer.flashedItems.push(computer.currentElement);
   if (computer.sequence.length === 0) {
-    console.log("computer.sequence array is empty")
+    console.log("computer.sequence array is empty");
     userClick();
   }
 }
