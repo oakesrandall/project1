@@ -60,7 +60,7 @@ function userClick() {
          setTimeout(flashArray, 1000);
       }
     } else {
-    youLose();
+    setTimeout(youLose(), 10000);
   }
   });
 }
@@ -75,6 +75,7 @@ function youWin(){
 }
 
 function youLose() {
+
   if(!alert("You lose!")){window.location.reload();}
 }
 

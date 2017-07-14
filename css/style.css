@@ -7,10 +7,24 @@
   text-align: center;
 }
 
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
 .gameTitle h1 {
   font-family: "simon-font", sans-serif;
-  font-size: 10em;
-  margin: 0 auto 0.1em auto;
+  font-size: 15em;
+  margin: -0.4em auto 0.1em auto;
 }
 .gamePageContent {
   width: 900px;
