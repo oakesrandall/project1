@@ -4,7 +4,7 @@ $(function() {
 });
 
 function createStorage() {
-  localStorage.setItem("currentPlayer", 1);
+  localStorage.setItem("currentPlayer", 2);
   localStorage.setItem("streak1", 0);
   localStorage.setItem("streak2", 0);
 }
@@ -68,7 +68,6 @@ function userClick() {
          setTimeout(flashArray, 1000);
       }
     } else {
-    switchPlayer();
     setTimeout(youLose(), 10000);
   }
   });
@@ -90,6 +89,9 @@ function youLose() {
 
 function levelUp() {
   player.level ++;
+  if (player.level > localStorage["streak" + localStorage.currentPlayer]) {
+    localStorage["streak" + localStorage.currentPlayer] = player.level;
+  }
   countSequences = 0;
   counter = 0;
   player.response = 0;
@@ -105,7 +107,7 @@ function levelUp() {
 function resetPlayerStats() {
   localStorage.streak1 = 0;
   localStorage.streak2 = 0;
-  localStorage.currentPlayer = 1;
+  localStorage.currentPlayer = 2;
 }
 
 //resets variables
@@ -119,6 +121,7 @@ function resetBoard() {
   computer.currentElement = 0;
   computer.arrayLength = 0;
   computer.testElement = 0;
+  switchPlayer();
 }
 
 //resets player response variable
@@ -187,6 +190,15 @@ $("#block2").corner("bite, bl 60px");
 $("#block3").corner("bite, tr 60px");
 $("#block4").corner("bite, tl 60px");
 
+$("button#resetButton").click(function() {
+  console.log("clicked reset stats");
+  resetPlayerStats();
+  if(!alert("Player Stats have been reset")){window.location.reload();}
+});
+
 $("button#startButton").click(function() {
   setTimeout(playGame, 600);
 });
+
+$("#playerOneScore").text("Player One Longest Streak: " + localStorage.streak1);
+$("#playerTwoScore").text("Player Two Longest Streak: " + localStorage.streak2);
