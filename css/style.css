@@ -62,7 +62,7 @@ body {
 .rightColumn {
   width: 420px;
   height: 420px;
-  display: inine-block;
+  display: inline-block;
   float: right;
   margin-right: 1.5em;
 }
@@ -172,12 +172,6 @@ body {
 }
 
 
-
-
-.gameInfoButtons {
-
-}
-
 #aboutButton {
   display: inline-block;
 }
@@ -191,7 +185,13 @@ body {
   clear: left;
 }
 
-.footerText {
-  /*display: block;*/
+a .splashButton {
+  appearance: button;
+}
 
+.splashButton strong {
+  font-family: "simon-font", sans-serif;
+  font-size: 5em;
+  font-variant-ligatures: none;
+  text-decoration: none;
 }
