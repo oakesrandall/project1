@@ -14,11 +14,13 @@ html, body {
 html {
     display: table;
     margin: auto;
+    /*background-image: url("../images/80sbg.jpg");*/
 }
 
 body {
     display: table-cell;
     vertical-align: middle;
+
 }
 
 .gameTitle h1 {
