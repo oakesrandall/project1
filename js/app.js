@@ -59,7 +59,7 @@ function userClick() {
     var tempVar = $(this).attr("id");
     player.response = (tempVar[5]);
     $("#" + "audio" + player.response)[0].play();
-    setTimeout(testCase, 500);
+    setTimeout(testCase, 400);
     });
 }
 
@@ -73,7 +73,7 @@ function testCase() {
          setTimeout(flashArray, 1000);
       }
     } else {
-    setTimeout(youLose(), 10000);
+    setTimeout(youLose, 500);
   }
 }
 
@@ -90,7 +90,7 @@ function youWin(){
 }
 
 function youLose() {
-
+  $("#buzz")[0].play();
   if(!alert("You lose!")){window.location.reload();}
 }
 
