@@ -9,8 +9,8 @@
 
 .gameTitle h1 {
   font-family: "simon-font", sans-serif;
-  font-size: 8em;
-  margin: 0.25em auto;
+  font-size: 10em;
+  margin: 0 auto 0.1em auto;
 }
 .gamePageContent {
   width: 900px;
@@ -22,6 +22,7 @@
   height: 420px;
   display: inline-block;
   float: left;
+  margin-left: 1.5em
 }
 
 .rightColumn {
@@ -29,6 +30,35 @@
   height: 420px;
   display: inine-block;
   float: right;
+  margin-right: 1.5em;
+}
+
+.gameInfoButtons {
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.gameStatsBox {
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.startButton {
+  display: block;
+}
+
+#resetButton {
+  height: 3em;
+  width: 10em;
+  margin-bottom: 3em;
+}
+
+#startButton {
+  height: 7em;
+  width: 38em;
+  background-color: orange;
+  border-radius: 10px;
+  margin-top: 5em;
 }
 
 #block1 {
@@ -46,7 +76,6 @@
   width: 200px;
   height: 200px;
   background-color: red;
-  border: 2px solid black;
   border-top-right-radius: 100%;
 
 
