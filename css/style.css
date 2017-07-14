@@ -195,3 +195,17 @@ a .splashButton {
   font-variant-ligatures: none;
   text-decoration: none;
 }
+
+.splashPageHeadline h1 {
+  font-family: "simon-font", sans-serif;
+  font-size: 20em;
+  font-variant-ligatures: none;
+}
+
+.splashPageContainer {
+
+  background-image: url("../images/simon.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}

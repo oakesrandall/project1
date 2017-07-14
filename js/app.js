@@ -3,6 +3,12 @@ $(function() {
   console.log("Page is ready");
 });
 
+function createStorage() {
+  localStorage.setItem("currentPlayer", 1);
+  localStorage.setItem("streak1", 0);
+  localStorage.setItem("streak2", 0);
+}
+
 //creates a computer variable to track the computer's sequence
 var computer = {
   sequence: [],
@@ -22,6 +28,7 @@ var player = {
 };
 
 
+
 var countSequences = 0;
 
 var counter = 0;
@@ -31,8 +38,9 @@ function playGame() {
    resetBoard();
    createMultipleSequences();
    flashArray();
-
 }
+
+
 
 //generates a random number between 1 and 4
 function generateRandomNumber() {
@@ -60,6 +68,7 @@ function userClick() {
          setTimeout(flashArray, 1000);
       }
     } else {
+    switchPlayer();
     setTimeout(youLose(), 10000);
   }
   });
@@ -81,7 +90,6 @@ function youLose() {
 
 function levelUp() {
   player.level ++;
-  player.streak = player.level;
   countSequences = 0;
   counter = 0;
   player.response = 0;
@@ -95,8 +103,9 @@ function levelUp() {
 
 //resets all player stats
 function resetPlayerStats() {
-  player.streak = 0;
-  player.attempts = 0;
+  localStorage.streak1 = 0;
+  localStorage.streak2 = 0;
+  localStorage.currentPlayer = 1;
 }
 
 //resets variables
@@ -135,6 +144,15 @@ function createMultipleSequences() {
   }
   console.log("Computer.sequence is now " + computer.sequence);
   computer.arrayLength = computer.sequence.length;
+}
+
+function switchPlayer() {
+  console.log("Switching player");
+  if (localStorage.currentPlayer === "1") {
+    localStorage.currentPlayer = "2";
+  } else if (localStorage.currentPlayer === "2"){
+    localStorage.currentPlayer = "1";
+  }
 }
 
 //Takes the computer's randomly generated sequence and outputs a number used
