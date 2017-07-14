@@ -75,7 +75,7 @@ function youWin(){
 }
 
 function youLose() {
-  console.log("game over")
+  if(!alert("You lose!")){window.location.reload();}
 }
 
 function levelUp() {
@@ -145,7 +145,7 @@ function flashArray(){
     flashColor();
     if (counter < computer.arrayLength -1) {
       counter++
-      setTimeout(flashArray, 1000);
+      setTimeout(flashArray, 600);
     }
 }
 
@@ -169,5 +169,5 @@ $("#block3").corner("bite, tr 60px");
 $("#block4").corner("bite, tl 60px");
 
 $("button#startButton").click(function() {
-  setTimeout(playGame, 1000);
+  setTimeout(playGame, 600);
 });
