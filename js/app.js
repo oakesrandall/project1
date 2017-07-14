@@ -21,6 +21,7 @@ var player = {
   response: 0,
 };
 
+
 var countSequences = 0;
 
 var counter = 0;
@@ -45,17 +46,18 @@ function userClick() {
   console.log("Ran userClick. Waiting for click");
   $(".clickMe").on("click", function() {
     computer.testElement = computer.flashedItems.shift();
-    $(this).animate({opacity: .1}, 200).animate({opacity: 1}, 100);
+    $(this).animate({opacity: .1}, 300).animate({opacity: 1}, 200);
     console.log("Click registered");
     var tempVar = $(this).attr("id");
     player.response = (tempVar[5]);
+    $("#" + "audio" + player.response)[0].play();
     if (computer.testElement == player.response) {
       computer.sequence.push(computer.testElement);
       if (computer.flashedItems.length === 0){
          levelUp();
          noClick();
          createMultipleSequences();
-         setTimeout(flashArray, 600);
+         setTimeout(flashArray, 1000);
       }
     } else {
     youLose();
@@ -143,14 +145,15 @@ function flashArray(){
     flashColor();
     if (counter < computer.arrayLength -1) {
       counter++
-      setTimeout(flashArray, 600);
+      setTimeout(flashArray, 1000);
     }
 }
 
 //makes a colored box flash according to the number passed into the function
 function flashColor() {
   computer.currentElement = computer.sequence.shift();
-  $("#block" + computer.currentElement).animate({opacity: .1}, 200).animate({opacity: 1}, 100);
+  $("#" + "audio" + computer.currentElement)[0].play();
+  $("#block" + computer.currentElement).animate({opacity: .1}, 300).animate({opacity: 1}, 200);
   computer.flashedItems.push(computer.currentElement);
   if (computer.sequence.length === 0) {
     console.log("computer.sequence array is empty")
@@ -166,5 +169,5 @@ $("#block3").corner("bite, tr 60px");
 $("#block4").corner("bite, tl 60px");
 
 $("button#startButton").click(function() {
-  setTimeout(playGame, 600);
+  setTimeout(playGame, 1000);
 });
