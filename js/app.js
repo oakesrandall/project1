@@ -59,6 +59,11 @@ function userClick() {
     var tempVar = $(this).attr("id");
     player.response = (tempVar[5]);
     $("#" + "audio" + player.response)[0].play();
+    setTimeout(testCase, 500);
+    });
+}
+
+function testCase() {
     if (computer.testElement == player.response) {
       computer.sequence.push(computer.testElement);
       if (computer.flashedItems.length === 0){
@@ -70,8 +75,10 @@ function userClick() {
     } else {
     setTimeout(youLose(), 10000);
   }
-  });
 }
+
+
+
 
 function noClick() {
   $(".clickMe").off("click");
