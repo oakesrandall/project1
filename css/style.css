@@ -3,8 +3,17 @@
   src: url("../fonts/pricedown-bl.ttf");
 }
 
+button {
+  border-radius: 15px;
+}
+
+h3 {
+  margin-top: 0
+}
+
 h3 strong {
   font-family: "simon-font";
+  font-variant-ligatures: none;
   src: url("../fonts/pricedown-bl.ttf");
   font-size: 30px;
 }
@@ -20,7 +29,9 @@ html, body {
 html {
     display: table;
     margin: auto;
-    /*background-image: url("../images/80sbg.jpg");*/
+    /*background-image: url("../images/80sbg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover*/
 }
 
 body {
@@ -31,7 +42,9 @@ body {
 .gameTitle h1 {
   font-family: "simon-font", sans-serif;
   font-size: 15em;
-  margin: -0.2em auto 0.1em auto;
+  font-variant-ligatures: none;
+  margin: -0.2em auto 0 auto;
+
 }
 .gamePageContent {
   width: 1000px;
@@ -119,6 +132,7 @@ body {
   font-size: 20px;
   font-family: "simon-font";
   src: url("../fonts/pricedown-bl.ttf");
+  font-variant-ligatures: none;
 }
 
 #block1 {
