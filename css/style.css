@@ -199,18 +199,34 @@ a .splashButton {
 
 .splashPageHeadline h1 {
   font-family: "simon-font", sans-serif;
-  font-size: 20em;
+  font-size: 10em;
   font-variant-ligatures: none;
+}
+
+.splashPageHeadline h4 {
+  font-family: "simon-font", sans-serif;
+  font-size: 5em;
+  font-variant-ligatures: none;
+}
+
+.splashButton {
+  height: 80px;
+  width: 700px;
+  background-color: orange;
+  border-radius: 10px;
+  margin: 0 auto;
+  font-size: 60px;
+  box-shadow: 10px 10px 5px #888888;
+  src: url("../game.html");
 }
 
 .splashPageContainer {
 
-  background-image: url("../images/simon.jpg");
+  background-image: url("../images/econoline.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
   width: 100%;
-
 }
 
 @media only screen and (max-width: 500px) {
