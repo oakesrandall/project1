@@ -120,7 +120,7 @@ function youWin(){
 //alerts player that they have lost and plays awful sound.  reloads page.
 function youLose() {
   $("#buzz")[0].play();
-  if(!alert("You lose!")){window.location.reload();}
+  if(!alert("You lose! Switch players and click start.")){window.location.reload();}
 }
 
 //increases the player's level and changes the player's highest level to their current

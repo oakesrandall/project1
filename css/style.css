@@ -29,7 +29,7 @@ html, body {
 html {
     display: table;
     margin: auto;
-    background-color: #d3d3d3;
+    background-color: #4682B4;
     /*background-image: url("../images/80sbg.jpg");
     background-repeat: no-repeat;
     background-size: cover*/
@@ -50,17 +50,24 @@ body {
 .gamePageContent {
   width: 1000px;
   min-height: 830px;
-  background-color: white;
+  background-color: #DCDCDC;
   border-radius: 10px;
   border: 2px solid black;
+  margin-top: 15px;
 }
 
 .gameBoard {
-  width: 510px;
-  height: 510px;
+  background-color: black;
+  width: 504px;
+  height: 504px;
   display: inline-block;
   float: left;
-  margin-left: 1.5em
+  margin-left: 1.5em;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  border: 5px solid black;
 }
 
 .rightColumn {
@@ -86,6 +93,7 @@ body {
   font-size: 15px;
   font-weight: bold;
   box-shadow: 10px 10px 5px #888888;
+  background-color: #A9A9A9;
 
 }
 
@@ -98,6 +106,7 @@ body {
   font-size: 15px;
   font-weight: bold;
   box-shadow: 10px 10px 5px #888888;
+  background-color: #A9A9A9;
 }
 
 .gameStatsBox {
@@ -120,6 +129,7 @@ body {
   font-size: 15px;
   font-weight: bold;
   box-shadow: 10px 10px 5px #888888;
+  background-color: #A9A9A9;
 }
 
 #startButton {
@@ -188,6 +198,10 @@ body {
 .startButton {
   display: block;
   clear: left;
+}
+
+.footerText {
+  color: white;
 }
 
 a .splashButton {
@@ -312,13 +326,15 @@ a .splashButton {
     text-align: center;
     margin: 0 auto;
     border: none;
+    background-color: white;
   }
 
   .gameBoard {
     display: block;
-    width: 400px;
-    height: 375px;
-    margin: 2% auto;
+    width: 355px;
+    height: 355px;
+    margin: 2% 2% 2% 4%;
+
   }
 
   .rightColumn {
@@ -356,6 +372,7 @@ a .splashButton {
    margin: 1% auto;
    width: 100%;
    font-size: 1em;
+   font-weight: bold;
  }
 
  .gameInfoButtons {
@@ -372,6 +389,10 @@ a .splashButton {
  .gameStatsBox {
    width: 390px;
    margin: 1% 1%;
+ }
+
+ .footerText {
+   color: black;
  }
 
 }
