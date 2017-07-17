@@ -29,6 +29,7 @@ html, body {
 html {
     display: table;
     margin: auto;
+    background-color: #d3d3d3;
     /*background-image: url("../images/80sbg.jpg");
     background-repeat: no-repeat;
     background-size: cover*/
@@ -48,7 +49,10 @@ body {
 }
 .gamePageContent {
   width: 1000px;
-  min-height: 800px;
+  min-height: 830px;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid black;
 }
 
 .gameBoard {
@@ -243,6 +247,8 @@ a .splashButton {
   html {
     display: block;
     margin: 0 auto;
+    background-color: white;
+
   }
 
   .gameTitle h1 {
@@ -256,6 +262,7 @@ a .splashButton {
     max-width: 400px;
     text-align: center;
     margin: 0 auto;
+    border: none;
   }
 
   .gameBoard {
@@ -263,7 +270,8 @@ a .splashButton {
     width: 400px;
     height: 375px;
     margin: 2% auto;
-    }
+  }
+
   .rightColumn {
     display: block;
     width: 400px;
