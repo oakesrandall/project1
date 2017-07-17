@@ -44,6 +44,16 @@
           <button onclick="location.href='https://en.wikipedia.org/wiki/Simon_(game)'" type="button" id="aboutButton">About <strong>simon</strong></button>
           <br>
           <button type="button" id="rulesButton">Rules</button>
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+                <p><strong>simon</strong> will show you a pattern of sounds and colors.</p>
+                <br>
+                <p>When <strong>simon</strong> is done, it is your job to repeat it.</p>
+                <br>
+                <p>If you mess up, your turn is over and it is the next player's turn.</p>
+            </div>
+          </div>
         </div>
         <div class="gameStatsBox">
           <div class="statsHeadline">
@@ -61,8 +71,6 @@
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
     <footer>
@@ -70,7 +78,6 @@
         <p>Created with love (and lots of frustration and profanity) at General Assembly-Denver</p>
       </div>
     </footer>
-
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/jquery.corner.js"></script>
     <script type="text/javascript" src="js/app.js"></script>

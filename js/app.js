@@ -3,6 +3,18 @@ $(function() {
   console.log("Page is ready");
 });
 
+//opens rules modal when the rules button is clicked
+$("#rulesButton").click(function() {
+  console.log("clicked rules");
+  $(".modal").css("display", "block");
+});
+
+//closes modal when x is clicked
+$(".close").click(function () {
+  console.log("clicked close");
+  $(".modal").css("display", "none");
+});
+
 //creates a variable to hold high scores that will survive a browser refresh
 function createStorage() {
   localStorage.setItem("currentPlayer", 2);
