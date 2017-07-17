@@ -82,6 +82,7 @@ body {
   border: 2px solid black;
   border-radius: 10px;
   margin-bottom: 1em;
+  background-color: #C0C0C0;
 }
 
 #aboutButton {
@@ -93,7 +94,7 @@ body {
   font-size: 15px;
   font-weight: bold;
   box-shadow: 10px 10px 5px #888888;
-  background-color: #A9A9A9;
+  background-color: #696969;
 
 }
 
@@ -106,12 +107,13 @@ body {
   font-size: 15px;
   font-weight: bold;
   box-shadow: 10px 10px 5px #888888;
-  background-color: #A9A9A9;
+  background-color: #696969;
 }
 
 .gameStatsBox {
   border: 2px solid black;
   border-radius: 10px;
+  background-color: #C0C0C0;
 }
 
 .gameStatsBox h2 {
@@ -129,7 +131,7 @@ body {
   font-size: 15px;
   font-weight: bold;
   box-shadow: 10px 10px 5px #888888;
-  background-color: #A9A9A9;
+  background-color: #696969;
 }
 
 #startButton {
