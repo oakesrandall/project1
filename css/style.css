@@ -207,5 +207,56 @@ a .splashButton {
   background-image: url("../images/simon.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100%;
+  width: 100%;
 
+}
+
+@media only screen and (max-width: 500px) {
+
+  html {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .gameTitle h1 {
+    text-align: center;
+    font-size: 5em;
+    margin: 0 auto;
+    max-width: 500px;
+  }
+
+  .gamePageContent {
+    max-width: 500px;
+  }
+
+  .gameBoard {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    }
+  .rightColumn {
+    display: block;
+    max-width: 100%;
+  }
+
+  #block1 {
+    height: 200px;
+    width: 200px;
+  }
+
+  #block2 {
+    height: 200px;
+    width: 200px;
+  }
+
+  #block3 {
+    height: 200px;
+    width: 200px;
+  }
+
+  #block4 {
+    height: 200px;
+    width: 200px;
+  }
 }

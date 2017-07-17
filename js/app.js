@@ -174,7 +174,7 @@ function flashArray(){
     flashColor();
     if (counter < computer.arrayLength -1) {
       counter++;
-      setTimeout(flashArray, 600);
+      setTimeout(flashArray, 500);
     }
 }
 
