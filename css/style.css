@@ -201,12 +201,14 @@ a .splashButton {
   font-family: "simon-font", sans-serif;
   font-size: 10em;
   font-variant-ligatures: none;
+  text-shadow: 5px 5px 3px #a9a9a9;
 }
 
 .splashPageHeadline h4 {
   font-family: "simon-font", sans-serif;
   font-size: 5em;
   font-variant-ligatures: none;
+  text-shadow: 5px 5px 3px #a9a9a9;
 }
 
 .splashButton {
@@ -216,8 +218,11 @@ a .splashButton {
   border-radius: 10px;
   margin: 0 auto;
   font-size: 60px;
-  box-shadow: 10px 10px 5px #888888;
+  border: 5px solid #000000;
   src: url("../game.html");
+  text-decoration: none;
+  color: black;
+  padding: 5px;
 }
 
 .splashPageContainer {
@@ -227,6 +232,10 @@ a .splashButton {
   background-size: cover;
   height: 100%;
   width: 100%;
+}
+
+.copyrightInfo {
+  color: white;
 }
 
 @media only screen and (max-width: 500px) {
