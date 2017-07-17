@@ -3,18 +3,6 @@ $(function() {
   console.log("Page is ready");
 });
 
-//opens rules modal when the rules button is clicked
-$("#rulesButton").click(function() {
-  console.log("clicked rules");
-  $(".modal").css("display", "block");
-});
-
-//closes modal when x is clicked
-$(".close").click(function () {
-  console.log("clicked close");
-  $(".modal").css("display", "none");
-});
-
 //creates a variable to hold high scores that will survive a browser refresh
 function createStorage() {
   localStorage.setItem("currentPlayer", 2);
@@ -40,11 +28,9 @@ var player = {
   response: 0,
 };
 
-
 //counter variables used in later functions
 var countSequences = 0;
 var counter = 0;
-
 
 //function that runs when the play game button is pressed.  Runs the functions
 // to get the game started
@@ -55,17 +41,58 @@ function playGame() {
    flashArray();
 }
 
-
-
 //generates a random number between 1 and 4
 function generateRandomNumber() {
   console.log("ran generateRandomNumer");
   return Math.floor(Math.random() * 4 + 1);
 }
 
+//pushes the randomly generated number into the computer's array
+function createComputerSequence() {
+  console.log("ran createComputerSequence");
+  computer.sequence.push(generateRandomNumber());
+  console.log("Pushed random number into computer.sequence " + computer.sequence[computer.sequence.length -1]);
+}
+
+//determines how many randomly generated numbers should be added into the
+//computer's sequence based on how high a player's level is
+function createMultipleSequences() {
+  console.log("Ran createMultipleSequences");
+  if (countSequences < player.level) {
+    createComputerSequence();
+    countSequences ++;
+    createMultipleSequences();
+  }
+  console.log("Computer.sequence is now " + computer.sequence);
+  computer.arrayLength = computer.sequence.length;
+}
+
+//Takes the computer's randomly generated sequence and outputs a number used
+//to make a specific section flash.  This function has a time delay built in so
+//the blocks don't flash too quickly
+var counter = 0;
+function flashArray(){
+    flashColor();
+    if (counter < computer.arrayLength -1) {
+      counter++;
+      setTimeout(flashArray, 615);
+    }
+}
+
+//makes a colored box flash according to the number passed into the function
+function flashColor() {
+  computer.currentElement = computer.sequence.shift();
+  $("#" + "audio" + computer.currentElement)[0].play();
+  $("#block" + computer.currentElement).animate({opacity: 0.1}, 300).animate({opacity: 1}, 200);
+  computer.flashedItems.push(computer.currentElement);
+  if (computer.sequence.length === 0) {
+    console.log("computer.sequence array is empty");
+    userClick();
+  }
+}
+
 //allows the board to be clicked and gives me the number of the
 //block that was clicked
-
 function userClick() {
   console.log("Ran userClick. Waiting for click");
   $(".clickMe").on("click", function() {
@@ -104,17 +131,10 @@ function testCase() {
   }
 }
 
-
-
 //turns off the ability to click the board (to be used while the computer is playing)
 function noClick() {
   $(".clickMe").off("click");
   console.log("Ran noClick");
-}
-
-//stretch goal, not implemented yet. currently game goes on forever
-function youWin(){
-  alert("Wow! You made it through 20 levels!");
 }
 
 //alerts player that they have lost and plays awful sound.  reloads page.
@@ -127,8 +147,8 @@ function youLose() {
 //streak, assuming their current score is higher than their past scores.
 function levelUp() {
   player.level ++;
-  if (player.level > localStorage["streak" + localStorage.currentPlayer]) {
-    localStorage["streak" + localStorage.currentPlayer] = player.level;
+  if (player.level -1 > localStorage["streak" + localStorage.currentPlayer]) {
+    localStorage["streak" + localStorage.currentPlayer] = player.level -1;
   }
 //resets variables and counters to get ready for the next round
   countSequences = 0;
@@ -163,26 +183,6 @@ function resetBoard() {
   switchPlayer();
 }
 
-//pushes the randomly generated number into the computer's array
-function createComputerSequence() {
-  console.log("ran createComputerSequence");
-  computer.sequence.push(generateRandomNumber());
-  console.log("Pushed random number into computer.sequence " + computer.sequence[computer.sequence.length -1]);
-}
-
-//determines how many randomly generated numbers should be added into the
-//computer's sequence based on how high a player's level is
-function createMultipleSequences() {
-  console.log("Ran createMultipleSequences");
-  if (countSequences < player.level) {
-    createComputerSequence();
-    countSequences ++;
-    createMultipleSequences();
-  }
-  console.log("Computer.sequence is now " + computer.sequence);
-  computer.arrayLength = computer.sequence.length;
-}
-
 //switches players
 function switchPlayer() {
   console.log("Switching player");
@@ -190,30 +190,6 @@ function switchPlayer() {
     localStorage.currentPlayer = "2";
   } else if (localStorage.currentPlayer === "2"){
     localStorage.currentPlayer = "1";
-  }
-}
-
-//Takes the computer's randomly generated sequence and outputs a number used
-//to make a specific section flash.  This function has a time delay built in so
-//the blocks don't flash too quickly
-var counter = 0;
-function flashArray(){
-    flashColor();
-    if (counter < computer.arrayLength -1) {
-      counter++;
-      setTimeout(flashArray, 615);
-    }
-}
-
-//makes a colored box flash according to the number passed into the function
-function flashColor() {
-  computer.currentElement = computer.sequence.shift();
-  $("#" + "audio" + computer.currentElement)[0].play();
-  $("#block" + computer.currentElement).animate({opacity: 0.1}, 300).animate({opacity: 1}, 200);
-  computer.flashedItems.push(computer.currentElement);
-  if (computer.sequence.length === 0) {
-    console.log("computer.sequence array is empty");
-    userClick();
   }
 }
 
@@ -234,6 +210,18 @@ $("button#resetButton").click(function() {
 //listens for clicks on the start game button and starts the game
 $("button#startButton").click(function() {
   setTimeout(playGame, 600);
+});
+
+//opens rules modal when the rules button is clicked
+$("#rulesButton").click(function() {
+  console.log("clicked rules");
+  $(".modal").css("display", "block");
+});
+
+//closes modal when x is clicked
+$(".close").click(function () {
+  console.log("clicked close");
+  $(".modal").css("display", "none");
 });
 
 //displays the longest streaks retrieved from local storage for each player
