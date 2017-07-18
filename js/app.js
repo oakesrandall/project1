@@ -1,6 +1,9 @@
 //checks to see if page is ready
 $(function() {
   console.log("Page is ready");
+  if (!localStorage.currentPlayer && !localStorage.streak1 && !localStorage.streak2) {
+    createStorage();
+  }
 });
 
 //creates a variable to hold high scores that will survive a browser refresh

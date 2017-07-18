@@ -1,0 +1,538 @@
+html{
+	height:100%;
+}
+body{
+	max-width: 1280px;
+	font-family:"Pinyon Script", sans-serif;
+	background-image: url('assets/DuelBG2.png');
+	background-position: center;
+	background-repeat:no-repeat; 
+	background-size: cover;
+	overflow-y: hidden;
+	overflow-x:hidden;
+	z-index: -5;
+}
+
+.arms{
+	z-index: 38;
+}
+/*--------------------answer inputs---------*/
+.answerInputs{
+	position:absolute;
+	top:525;
+	left: 542px;
+	width:250px;
+	height:100px;
+	z-index: 99;
+}
+
+
+#answerBox{
+	font-family: VictorianParlor;
+	top:20px;
+	text-align: center;
+	font-size: 30px;
+	margin:25px;
+	height: 45px;
+	width: 45px;
+	background:transparent;
+	border-radius: 25px;
+	animation: fadein 1s;
+	z-index: 20;
+}
+
+#answerBoxTwo{
+	font-family: VictorianParlor;
+	top:20px;
+	text-align: center;
+	font-size: 30px;
+	margin:25px;
+	height: 45px;
+	width: 45px;
+	background:transparent;
+	border-radius: 25px;
+	animation: fadein 1s;
+	z-index: 22;
+}
+
+.backGround{
+	display:none;
+}
+/*----------------------top buttons start/try again-------------*/
+.buttons{
+	text-align: center;
+	height:45px;
+ 	width:100px;
+ 	margin:auto;
+ 	z-index: 55;
+ 	position:relative;
+	top:25px;
+}
+#resetButton{
+	font-size: 22px;
+	margin-top:-25px;
+	height:100px;
+	width:100px;
+	background-color:rgba(255, 238, 5, 0.3);
+	border:none;
+	border-radius: 50%;
+	z-index: 90;
+	animation: fadein 2s;
+	z-index: 68;
+
+}
+#startButton{
+	font-family:'Pinyon Script';
+	font-size: 40px;
+	margin-top: 20px;
+	height:100px;
+	width:100px;
+	background-color:rgba(48, 204, 92, 0.3);
+	border:none;
+	border-radius: 50%;
+	animation: fadein 1s;
+	z-index: 68;
+}
+
+
+.countDownDisplay{
+	height:100px;
+	width:100px;
+	margin-left:50%;
+}
+
+
+
+.floorImg{
+	position:relative;
+	width:100%;
+	bottom:50px;
+	z-index: -5px;
+}
+
+
+
+
+/*#squish{               second try
+	overflow:hidden;
+	
+}*/
+
+/*.foot{                 second try
+	position:absolute;
+	height:715px;
+	width:625px;
+	bottom:800px;
+	left:0;
+	transition:bottom .25s linear;
+	z-index: 45;
+}*/
+
+/*-------------------foot and foot animation---------*/
+#squish{             
+	margin:0px;
+	position:absolute;
+	top:0px;
+	overflow:;
+	z-index: 12;
+}
+
+.squishMoveRight{
+	left:600px;
+
+}
+
+
+.foot{
+	position: relative;
+	height:715px;
+	width:625px;
+	bottom:780px;
+	transition: bottom .25s linear;
+	z-index: 35;
+}
+
+
+
+.pOneSquish{
+	bottom:10px;
+}
+
+.pTwoSquish{
+	bottom:10px;
+}
+
+.squishLeft{
+	height:75px;
+}
+
+.squishRight{
+	height:75px;
+}
+
+
+/*--------------------------------------------*/
+
+.hideMe{
+	display: none;
+	
+
+}
+/*---------------------character Images-----------*/
+.images{
+	position:absolute;
+	height:620px;
+	top:168px;
+	left:0;
+	overflow-x: hidden;
+}
+.makeSmall{
+	width:38%;
+	z-index: 1;
+}
+
+
+.leftImg{  /*--------left body--------*/
+	position:relative;
+	top:0px;
+	left:50px;
+	z-index: 5;
+}
+
+.left{    /*-----------left arm--------*/
+	position:absolute;
+	top:112px;
+	left:49px;
+	transform: rotate(60deg);
+	transition: transform .25s ease-out; /*--for arm lift--*/
+	z-index: 10;
+}
+
+
+.leftArmRotating{ /*----------arm lift fire---------*/
+	transform:rotate(-5deg);
+	
+}
+
+.leftImgDead{	
+	position:relative;
+	top:0px;
+	left:50px;
+	transition: transform .5s ease-in, top .5s linear, height .35s linear,left .5s ease-in;
+	transition-delay: .25s;
+	z-index: 5;
+	margin:0;
+}
+
+.rightImg{   /*--------right body------------------------------------*/
+	position:relative;
+	top:0px;
+	left:225px;
+	z-index: 5;
+
+}
+
+.rightImgDead{
+	position:relative;
+	top:0px;
+	right:0px;
+	left:225px;
+	transition: transform .5s ease-in, top .5s linear, left .5s ease-out, right .5s ease-in;
+	transition-delay: .25s;
+	z-index: 5;
+	margin:0;
+}
+
+
+.right{  /*-----------right arm-----------*/
+	position:absolute;
+	top:113px;
+	left:748px;
+	transform: rotate(-60deg);
+	transition: transform .25s ease-out;
+	z-index: 10;
+}
+
+
+
+.rightArmRotating{
+	transform:rotate(3deg);
+}
+
+
+/*------------------escape transitions--------------------------*/
+
+.pOneEscape{
+  left: -400px;
+}
+
+.pTwoEscape{
+	left:750px;
+}
+/*------------------------------kill transitions-----------------*/
+.killLeft{
+	transform: rotate(-80deg);
+	top:200px;
+}
+
+.killRight{
+	transform: rotate(-90deg);
+	top:290px;
+	left:50px;
+}
+
+.playerNameOne{
+	font-family:'Pinyon Script';
+	text-align: center;
+	font-size: 45px;
+	position: relative;
+	bottom:15px;
+	left:85px;
+	width:300px;
+	margin-left:;
+	margin-bottom: 0px;
+	box-shadow: none;
+	border:none;
+	background:transparent;
+	
+}
+
+.playerNameTwo{
+	font-family:'Pinyon Script';
+	font-size: 45px;
+	text-align: center;
+	position:relative;
+	left:570px;
+	bottom:15px;
+	width:300px;
+	margin-right:;
+	margin-bottom: 0px;
+	box-shadow: none;
+	border:none;
+	background: transparent;
+
+	
+}
+
+
+.playerNames{
+	position:absolute;
+	z-index: 34;
+	
+}
+.pointerDiv{
+	position:absolute;
+	top:87px;
+	left:537px;
+
+}
+.pointerLeft{
+	position:relative;
+	margin-left:0px;
+	right:150px;
+	height:50px;
+	width:100px;
+	transform: scaleX(-1);
+	animation: fadein .5s;
+}
+
+.pointerRight{
+	position:relative;
+	left:250px;
+	margin-right:0px;
+	height:50px;
+	width:100px;
+	animation: fadein .5s;
+}
+
+.questionBoxDiv{
+	margin: auto;
+	margin-top:100px;
+	border:2px solid black;
+	height:90px;
+	width:170px;
+	border-radius: 50px;
+	z-index: 5;
+
+	
+}
+.qBox{
+	font-family:VictorianParlor;
+	margin-top: 15px;
+	font-size: 65px;
+	text-align:center;
+	z-index: 55;
+}
+
+
+
+
+
+.roundsBoxOne{
+	position:absolute;
+	top:125px;
+	left:250px;
+	
+}
+
+.roundsBoxTwo{
+	position:absolute;
+	top:125px;
+	right:280px;
+
+}
+
+.roundsPOne{
+	font-size: 20px;
+	color:red;
+}
+
+.roundsPTwo{
+	font-size:20px;
+	color:blue;
+}
+
+
+.scoreBoxes{
+}
+
+.scoreBoxOne{
+	display:none;
+	
+	
+}
+
+.scoreBoxTwo{
+	display:none;
+}
+
+
+
+.tooSlowOne{
+	position:absolute;
+	width:200px;
+	font-size:45px;
+	top:320px;
+	left:150px;
+	animation: fadein 2s;
+	
+}
+
+.tooSlowTwo{
+	position:absolute;
+	width:200px;
+	font-size: 45px;
+	top:320px;
+	left:950px;
+	animation: fadein 2s;
+}
+
+/*---------------winner and announcement box-----------*/
+#winner{
+	font-family:VictorianParlor;
+	font-weight: lighter;
+	font-size: 70px;
+	line-height: 55px;
+	padding-top:10px;
+}
+.winnerBox{
+	border-radius: 25px;
+	text-align: center;
+	margin:auto;
+	margin-top:105px;
+	height:50px;
+	width:800px;
+	background-color:;
+}
+
+
+/*--------------clock-------------*/
+
+.clock{
+	position:absolute;
+	top:15px;
+	left:44%;
+	border-radius: 50%;
+	background:url('assets/watch1.png') no-repeat center;
+	background-size: 88%;
+	height:165px;
+	width:165px;
+	z-index: 99;
+	animation: fadein 3s;
+}
+
+.clock:after{
+	background: #000;
+	border-radius: 50%;
+	content: '';
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform:translate(-50% -50%);
+	width:2%;
+	height:2%;
+	z-index: 10;
+}
+
+.milliseconds-container, .seconds-container{
+	position:absolute;
+	top:26%;
+	right:2%;
+	bottom:0;
+	left:0;
+
+}
+
+.seconds{
+	background:#000;
+	height:20%;
+	left:49%;
+	position:absolute;
+	top:30%;
+	transform-origin: 50% 100%;
+	width:1.5%;
+	z-index: 35;
+}
+
+
+.milliseconds{
+	background:#000;
+	height:30%;
+	left:50%;
+	position: absolute;
+	top:20%;
+	transform-origin: 50% 100%;
+	width:1%;
+}
+
+.seconds-container-animate{
+		animation:rotate 60s infinite linear;
+	}
+.milliseconds-container-animate{
+		animation:rotate 1s infinite linear;
+	}
+
+.animationPause{
+	animation-play-state: paused;
+}
+
+
+/*----clock animation---------------*/
+
+@keyframes rotate{
+	100%{
+		transform: rotateZ(360deg);
+	}
+	
+}
+
+/*--------------animations-----------*/
+
+@keyframes fadein {
+	from{opacity:0;}
+	to{opacity:1;}
+}
+
+
+
+
