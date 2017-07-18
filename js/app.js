@@ -140,10 +140,14 @@ function noClick() {
   console.log("Ran noClick");
 }
 
-//alerts player that they have lost and plays awful sound.  reloads page.
+//alerts player that they have lost.  reloads page.
 function youLose() {
-  $("#buzz")[0].play();
-  if(!alert("You lose! Switch players and click start.")){window.location.reload();}
+  $("#loserModal").css("display", "block");
+  $(".close").click(function () {
+    console.log("clicked close");
+    $("#loserModal").css("display", "none");
+    window.location.reload();
+  });
 }
 
 //increases the player's level and changes the player's highest level to their current
@@ -218,7 +222,7 @@ $("button#startButton").click(function() {
 //opens rules modal when the rules button is clicked
 $("#rulesButton").click(function() {
   console.log("clicked rules");
-  $(".modal").css("display", "block");
+  $("#myModal").css("display", "block");
 });
 
 //closes modal when x is clicked
