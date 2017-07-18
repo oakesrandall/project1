@@ -73,7 +73,6 @@ function createMultipleSequences() {
 //Takes the computer's randomly generated sequence and outputs a number used
 //to make a specific section flash.  This function has a time delay built in so
 //the blocks don't flash too quickly
-var counter = 0;
 function flashArray(){
     flashColor();
     if (counter < computer.arrayLength -1) {
